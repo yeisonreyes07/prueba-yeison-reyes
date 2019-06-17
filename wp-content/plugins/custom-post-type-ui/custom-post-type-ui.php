@@ -957,3 +957,46 @@ function cptui_get_preserved_labels() {
 		),
 	);
 }
+/*========================CREAR SHORTCODES==================*/ 
+
+add_shortcode( 'testimoniales', 'mostrar_cpt_testimonniales' );
+function mostrar_cpt_portafolio( $atts, $content )
+{
+extract(shortcode_atts(array(
+), $atts));
+ 
+    ob_start();
+ 
+ 
+$argumentos = array( 'post_type' => 'testimoniales', 'posts_per_page' => 3 );
+$consulta = new WP_Query( $argumentos  );
+?>
+ 
+<?php if ( $consulta->have_posts() ) { ?>
+<?php while ( $consulta->have_posts() )
+ {
+         $consulta->the_post();
+ 
+             ?>
+              
+<div style="display:inline-block;float:none;">
+ 
+    <h2><?php the_title(); ?></h2>
+ 
+ 
+          <div class="imagen_portafolio">
+               <?php if ( has_post_thumbnail() ) { the_post_thumbnail('medium'); } ?>
+          </div>
+ 
+</div>
+ 
+<?php } wp_reset_postdata(); } else { ?>
+     
+ 
+<?php _e( 'Lo sentimos, no hay nada para mostrar' ); ?>
+ 
+<?php } ?>
+ 
+<?php
+return ob_get_clean();
+}  // end shortcode

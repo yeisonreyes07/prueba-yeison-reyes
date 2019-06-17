@@ -725,7 +725,7 @@ a:hover, a:active {
 	color:#949691;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 600;
-	font-size: 30px;
+	font-size: 31px;
 	line-height: 100px;
 	}
 /*Flechas del menu*/
@@ -1039,4 +1039,12 @@ object {
 section.jumbotron.text-center {
     background-image: url(http://localhost/landingpage/wp-content/uploads/2019/06/bg-1.png?id=26) !important;
     background-size: 100%;
+}
+/*========================== css personalizado ===========================*/ 
+footer#colophon {
+    padding: 40px 40px;
+    background-color: whitesmoke;
+}
+header#masthead {
+    margin-top: 30px;
 }
